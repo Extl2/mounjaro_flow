@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>決済のご案内</title>
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#6b7280;
+      --line:#e5e7eb;
+      --accent:#06c755;
+      --accent2:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    .wrap{
+      max-width:640px;
+      margin:0 auto;
+      padding:20px 14px 48px;
+    }
+    .hero{
+      background:linear-gradient(135deg,#2563eb 0%,#4f86ff 100%);
+      color:#fff;
+      border-radius:18px;
+      padding:22px 18px;
+      box-shadow:0 12px 28px rgba(37,99,235,.18);
+      margin-bottom:16px;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.16);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:28px;
+      line-height:1.3;
+    }
+    .hero p{margin:0;font-size:14px;opacity:.96}
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 8px 24px rgba(16,24,40,.06);
+      border:1px solid #edf1f5;
+      margin-bottom:14px;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:20px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
+      font-size:15px;
+    }
+    .row:last-child{border-bottom:none}
+    .total{
+      font-weight:800;
+      font-size:18px;
+    }
+    .btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      text-decoration:none;
+      border:none;
+      border-radius:14px;
+      padding:16px 18px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(6,199,85,.22);
+      margin-top:16px;
+    }
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent2);
+      border:1px solid #bfd2ff;
+      box-shadow:none;
+    }
+    .notice{
+      background:#f9fafb;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      font-size:14px;
+      color:var(--sub);
+    }
+    .small{
+      font-size:13px;
+      color:var(--sub);
+      margin-top:10px;
+    }
+    code{
+      background:#f3f4f6;
+      border-radius:6px;
+      padding:2px 6px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+      font-size:12px;
+      word-break:break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">決済ページ</div>
+      <h1>お支払いのご案内</h1>
+      <p>選択されたプランをご確認のうえ、決済へお進みください。</p>
+    </div>
+
+    <div class="card">
+      <h2>ご注文内容</h2>
+      <div class="row"><span>商品</span><strong id="product">-</strong></div>
+      <div class="row total"><span>合計（税込・送料込）</span><strong id="price">-</strong></div>
+
+      <a class="btn" id="payBtn" href="https://example.com/stera-payment-link" target="_blank" rel="noopener noreferrer">
+        ステラパックで決済する
+      </a>
+
+      <a class="btn secondary" href="purchase_mounjaro.html">
+        購入ページに戻る
+      </a>
+
+      <div class="small">
+        ※ 決済ボタンのリンク先は、実際のステラパック決済URLに差し替えてください。<br>
+        ※ 現在は仮リンクになっています。
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>設定する場所</h2>
+      <div class="notice">
+        <div>このファイルの下記URLを、実際のステラパック決済URLに変更してください。</div>
+        <div style="margin-top:10px;"><code>https://example.com/stera-payment-link</code></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get('product') || '未選択';
+    const price = params.get('price') || '0';
+
+    document.getElementById('product').textContent = product;
+    document.getElementById('price').textContent = '¥' + Number(price).toLocaleString();
+
+    // ステラパック側で商品ごとにURLを分ける場合は、ここを商品別に変更してください
+    const payBtn = document.getElementById('payBtn');
+    const steraBaseUrl = 'https://example.com/stera-payment-link';
+    payBtn.href = steraBaseUrl + '?product=' + encodeURIComponent(product) + '&price=' + encodeURIComponent(price);
+  </script>
+</body>
+</html>
