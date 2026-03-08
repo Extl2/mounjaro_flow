@@ -1,174 +1,95 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>オンライン診察のご案内</title>
-  <style>
-    :root {
-      --bg: #f7f8fc;
-      --card: #ffffff;
-      --text: #1f2937;
-      --sub: #6b7280;
-      --line: #dbe2ea;
-      --accent: #06c755;
-      --accent-soft: #ecfdf3;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    .wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 20px 14px 40px;
-    }
-    .hero {
-      background: linear-gradient(135deg, #06c755 0%, #2fd56f 100%);
-      color: #fff;
-      border-radius: 18px;
-      padding: 24px 20px;
-      box-shadow: 0 12px 28px rgba(6, 199, 85, 0.18);
-      margin-bottom: 16px;
-    }
-    .hero .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.18);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 28px;
-      line-height: 1.3;
-    }
-    .hero p {
-      margin: 0;
-      font-size: 14px;
-      opacity: 0.96;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
-      border: 1px solid #edf1f5;
-      margin-bottom: 14px;
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .step {
-      background: #f2fdf7;
-      color: #08763a;
-      border: 1px solid #ccefd8;
-      border-radius: 12px;
-      text-align: center;
-      padding: 10px 8px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    h2 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-    ul {
-      margin: 10px 0 0 0;
-      padding-left: 20px;
-    }
-    li { margin-bottom: 8px; }
-    .notice {
-      background: var(--accent-soft);
-      border: 1px solid #abefc6;
-      color: #067647;
-      border-radius: 14px;
-      padding: 16px;
-      font-weight: 700;
-    }
-    .line-box {
-      background: #fafbfc;
-      border: 1px solid #edf1f5;
-      border-radius: 14px;
-      padding: 16px;
-      color: var(--sub);
-      font-size: 14px;
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      border: none;
-      border-radius: 14px;
-      padding: 16px 18px;
-      font-size: 16px;
-      font-weight: 800;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(6, 199, 85, 0.22);
-      margin-top: 14px;
-    }
-    .note {
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--sub);
-      text-align: center;
-    }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 24px; }
-      .steps { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オンライン診察のご案内</title>
+<style>
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+  background:#f7f8fc;
+  margin:0;
+  padding:24px;
+  color:#1f2937;
+}
+.wrap{
+  max-width:560px;
+  margin:0 auto;
+}
+.card{
+  background:#ffffff;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 8px 24px rgba(16,24,40,.08);
+}
+h1{
+  font-size:24px;
+  margin-top:0;
+}
+.notice{
+  background:#ecfdf3;
+  border:1px solid #abefc6;
+  border-radius:12px;
+  padding:14px;
+  margin-top:14px;
+  font-size:14px;
+}
+.btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  text-decoration:none;
+  border:none;
+  border-radius:14px;
+  padding:16px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  background:#06c755;
+  color:#fff;
+  margin-top:20px;
+}
+.small{
+  font-size:13px;
+  color:#6b7280;
+  margin-top:14px;
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="badge">オンライン診療</div>
-      <h1>診察のご案内</h1>
-      <p>問診ありがとうございます。診察前の流れをご確認ください。</p>
+
+<div class="wrap">
+  <div class="card">
+
+    <h1>オンライン診察のご案内</h1>
+
+    <p>
+    ご予約ありがとうございます。<br>
+    診察は <strong>Google Meetによるビデオ診察</strong> で行います。
+    </p>
+
+    <div class="notice">
+    診察時間の<strong>10分前までに</strong><br>
+    Google Meetの診察URLを<strong>LINEでお送りします</strong>。
     </div>
 
-    <div class="card">
-      <div class="steps">
-        <div class="step">1. 予約完了</div>
-        <div class="step">2. 問診完了</div>
-        <div class="step">3. 診察案内</div>
-      </div>
+    <p class="small">
+    診察開始前にLINEをご確認ください。<br>
+    ご不明点がある場合もLINEからご連絡いただけます。
+    </p>
 
-      <h2>診察前のご案内</h2>
-      <ul>
-        <li>診察は医師によるビデオ通話で行います。</li>
-        <li>診察時間は約5分程度です。</li>
-        <li>通信環境の良い、静かな場所でお待ちください。</li>
-        <li>本人確認のため、身分証明書をご準備ください。</li>
-      </ul>
-    </div>
+    <a class="btn" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener noreferrer">
+      LINEを開く
+    </a>
 
-    <div class="card notice">
-      診察時間の10分前までに、Google MeetのURLをLINEでお送りします。<br>
-      このページのボタンから診察は開始されませんので、LINEのご案内をご確認ください。
-    </div>
+    <p class="small">
+    ※通信環境の良い場所でお待ちください。<br>
+    ※診察時間は約5分程度です。<br>
+    ※診察の結果により処方できない場合があります。
+    </p>
 
-    <div class="card line-box">
-      <strong>LINEで届く内容</strong><br><br>
-      ・診察時間のご案内<br>
-      ・Google MeetのURL<br>
-      ・診察前の注意事項<br><br>
-      LINE通知を受け取れる状態にしてお待ちください。
-      <a class="btn" href="https://line.me/R/ti/p/nSBG5aT" target="_blank" rel="noopener noreferrer">LINEを開く</a>
-      <div class="note">※ 「@YOUR_LINE_ID」をあなたのLINE公式アカウントIDに置き換えてください。例：@abc1234x</div>
-    </div>
   </div>
+</div>
+
 </body>
 </html>
