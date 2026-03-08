@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マンジャロ問診・同意 | オンライン診療</title>
+  <style>
+    :root {
+      --bg: #f6f8fb; --card:#fff; --text:#1f2937; --muted:#6b7280; --line:#d7dee8;
+      --accent:#06c755; --accent-dark:#03a347; --soft:#eefaf3; --warn:#fff7e8; --warn-border:#f3d28f;
+      --danger:#b42318; --shadow:0 12px 30px rgba(17,24,39,.08);
+    }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;line-height:1.65}
+    .wrap{max-width:780px;margin:0 auto;padding:18px 14px 50px}
+    .hero{background:linear-gradient(135deg,#06c755 0%,#39d97c 100%);color:#fff;border-radius:22px;padding:22px 18px;box-shadow:0 14px 32px rgba(6,199,85,.22);margin-bottom:16px}
+    .hero h1{margin:0 0 8px;font-size:28px;line-height:1.3}.hero p{margin:0;font-size:14px;opacity:.98}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;margin-bottom:10px}
+    .card{background:var(--card);border:1px solid #e8eef5;border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.step{background:var(--soft);border:1px solid #cfeeda;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:#08763a}
+    h2{font-size:18px;margin:0 0 12px} h3{font-size:16px;margin:0 0 10px} p.note{font-size:13px;color:var(--muted);margin:6px 0 0}
+    .alert{background:var(--warn);border:1px solid var(--warn-border);border-radius:14px;padding:14px;font-size:14px;margin-bottom:14px}
+    form{display:grid;gap:14px}.section{padding-top:8px;border-top:1px solid #eef2f7}.section:first-child{border-top:none;padding-top:0}
+    label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}.required::after{content:"必須";display:inline-block;margin-left:8px;padding:2px 7px;border-radius:999px;background:#fff1f1;color:var(--danger);font-size:11px;font-weight:800;vertical-align:middle}
+    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:16px;background:#fff;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(6,199,85,.12)}
+    textarea{min-height:96px;resize:vertical}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .checklist{display:grid;gap:10px}.check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #edf1f6;border-radius:12px;background:#fafcfe}.check input{width:18px;height:18px;flex:0 0 18px;margin-top:2px}.check span{font-size:14px}
+    .subtle{font-size:12px;color:var(--muted)}
+    .btn{width:100%;border:none;border-radius:15px;padding:16px 18px;font-size:16px;font-weight:800;cursor:pointer;background:var(--accent);color:#fff;box-shadow:0 12px 22px rgba(6,199,85,.22)}
+    .btn:hover{background:var(--accent-dark)}
+    .footer-note{text-align:center;font-size:12px;color:var(--muted)}
+    .success{display:none;background:#ecfdf3;border:1px solid #abefc6;color:#067647;border-radius:12px;padding:12px 14px;font-weight:700}
+    ul{margin:8px 0 0 18px;padding:0} li{margin:3px 0}
+    @media (max-width:640px){.grid-2,.grid-3,.steps{grid-template-columns:1fr}.hero h1{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">予約後の次のステップ</div>
+      <h1>マンジャロ問診・同意フォーム</h1>
+      <p>診察前にご入力ください。医師によるビデオ診察の前提情報として使用します。</p>
+    </div>
+
+    <div class="card">
+      <div class="steps">
+        <div class="step">1. 予約</div>
+        <div class="step">2. 問診・同意</div>
+        <div class="step">3. ビデオ診察</div>
+      </div>
+      <div class="alert">
+        <strong>ご確認ください</strong><br>
+        本ページは診察申込後の事前問診です。<br>
+        <strong>診察の結果により処方できない場合があります。</strong>
+      </div>
+
+      <!-- 実運用では action をフォーム送信先に変更してください -->
+      <form id="questionnaireForm" action="https://formspree.io/f/xxxxxxxx" method="POST">
+        <div class="section">
+          <h2>基本情報</h2>
+          <div class="grid-2">
+            <div>
+              <label class="required" for="name">お名前</label>
+              <input id="name" name="お名前" required placeholder="例）山田 花子" />
+            </div>
+            <div>
+              <label class="required" for="kana">フリガナ</label>
+              <input id="kana" name="フリガナ" required placeholder="例）ヤマダ ハナコ" />
+            </div>
+          </div>
+          <div class="grid-3">
+            <div>
+              <label class="required" for="birth">生年月日</label>
+              <input id="birth" type="date" name="生年月日" required />
+            </div>
+            <div>
+              <label class="required" for="height">身長（cm）</label>
+              <input id="height" type="number" name="身長_cm" required placeholder="160" />
+            </div>
+            <div>
+              <label class="required" for="weight">体重（kg）</label>
+              <input id="weight" type="number" step="0.1" name="体重_kg" required placeholder="58.0" />
+            </div>
+          </div>
+          <div class="grid-2">
+            <div>
+              <label class="required" for="tel">電話番号</label>
+              <input id="tel" type="tel" name="電話番号" required placeholder="09012345678" />
+            </div>
+            <div>
+              <label class="required" for="email">メールアドレス</label>
+              <input id="email" type="email" name="メールアドレス" required placeholder="sample@example.com" />
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>今回のご相談</h2>
+          <div class="grid-2">
+            <div>
+              <label class="required" for="goal">ご相談内容</label>
+              <select id="goal" name="ご相談内容" required>
+                <option value="">選択してください</option>
+                <option>体重管理の相談</option>
+                <option>初回処方の相談</option>
+                <option>継続処方の相談</option>
+                <option>副作用・使い方の相談</option>
+              </select>
+            </div>
+            <div>
+              <label class="required" for="glp1">GLP-1関連薬の使用歴</label>
+              <select id="glp1" name="GLP-1関連薬使用歴" required>
+                <option value="">選択してください</option>
+                <option>なし</option>
+                <option>あり（マンジャロ）</option>
+                <option>あり（他のGLP-1関連薬）</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="history">これまでの体重変化・治療歴</label>
+            <textarea id="history" name="体重変化_治療歴" placeholder="いつ頃から増えたか、これまで試した方法など"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>既往歴・服薬</h2>
+          <div>
+            <label class="required" for="conditions">現在治療中の病気・既往歴</label>
+            <textarea id="conditions" name="既往歴_治療中の病気" required placeholder="例）高血圧、脂質異常症、糖尿病、膵炎歴なし、甲状腺疾患なし など"></textarea>
+          </div>
+          <div>
+            <label class="required" for="meds">現在服用中の薬・サプリメント</label>
+            <textarea id="meds" name="服用中の薬" required placeholder="ない場合は「なし」と記載"></textarea>
+          </div>
+          <div>
+            <label class="required" for="allergy">アレルギー・副作用歴</label>
+            <textarea id="allergy" name="アレルギー_副作用歴" required placeholder="ない場合は「なし」と記載"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>安全確認</h2>
+          <p class="note">該当するものがあれば選択してください。</p>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" name="安全確認" value="膵炎の既往あり"><span>膵炎の既往がある</span></label>
+            <label class="check"><input type="checkbox" name="安全確認" value="胆のう疾患あり"><span>胆のう疾患の既往がある</span></label>
+            <label class="check"><input type="checkbox" name="安全確認" value="重い胃腸症状あり"><span>強い腹痛・持続する嘔吐・重い胃腸症状がある</span></label>
+            <label class="check"><input type="checkbox" name="安全確認" value="甲状腺関連の病歴あり"><span>甲状腺髄様がん・MEN2 の本人または家族歴がある</span></label>
+            <label class="check"><input type="checkbox" name="安全確認" value="妊娠または授乳中"><span>妊娠中・妊娠の可能性がある・授乳中</span></label>
+          </div>
+          <div style="margin-top:12px">
+            <label for="symptoms">現在の体調や気になる症状</label>
+            <textarea id="symptoms" name="現在の体調" placeholder="吐き気、腹痛、便秘、下痢、食欲低下など。ない場合は「なし」"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>マンジャロの副作用・同意</h2>
+          <div class="alert" style="background:#fafcff;border-color:#dbe7ff">
+            <strong>主な副作用として知られているもの</strong>
+            <ul>
+              <li>吐き気、嘔吐、下痢、便秘、腹痛、食欲低下</li>
+              <li>低血糖（他の糖尿病治療薬併用時など）</li>
+              <li>まれに膵炎、胆のう関連疾患、重い胃腸症状</li>
+            </ul>
+            <div class="subtle" style="margin-top:8px">重い腹痛、持続する嘔吐、脱水が疑われる症状などがあれば、速やかに医療機関へご相談ください。</div>
+          </div>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" name="同意1" required><span>医師によるビデオ診察の結果により、処方できない場合があることを理解しました。</span></label>
+            <label class="check"><input type="checkbox" name="同意2" required><span>マンジャロの主な副作用（吐き気、嘔吐、下痢、便秘、腹痛、食欲低下等）について確認しました。</span></label>
+            <label class="check"><input type="checkbox" name="同意3" required><span>重い腹痛や持続する嘔吐など異常がある場合は、投与継続の可否を自己判断せず医師へ相談することに同意します。</span></label>
+            <label class="check"><input type="checkbox" name="同意4" required><span>自由診療の費用負担が発生することを理解しています。</span></label>
+            <label class="check"><input type="checkbox" name="同意5" required><span>入力内容に相違がないこと、重要事項を隠していないことに同意します。</span></label>
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="【マンジャロ】問診・同意フォーム" />
+        <button type="submit" class="btn">問診を送信して診察案内へ進む</button>
+        <div id="successMessage" class="success">送信サンプルです。実際に使う場合は action を送信先URLへ変更し、送信後に visit.html へ遷移させてください。</div>
+        <p class="footer-note">※送信後、この時点ではまだ処方確定ではありません。</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('questionnaireForm');
+    const success = document.getElementById('successMessage');
+    form.addEventListener('submit', function(e){
+      const action = form.getAttribute('action') || '';
+      if(action.includes('xxxxxxxx')){
+        e.preventDefault();
+        success.style.display = 'block';
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    });
+  </script>
+</body>
+</html>
