@@ -232,7 +232,7 @@
       </div>
 
       <!-- action を実際の送信先URLに変更してください -->
-      <form id="reservationForm" action="https://formspree.io/f/mgonvroj" method="POST">
+      <form id="reservationForm" action="https://formspree.io/f/xxxxxxxx" method="POST">
         <div>
           <label class="required" for="name">お名前</label>
           <input id="name" name="お名前" type="text" placeholder="例）山田 花子" required />
@@ -317,7 +317,7 @@
         </label>
 
         <input type="hidden" name="_subject" value="【LINE予約】新規予約申込" />
-        <input type="hidden" id="nextField" name="_next" value="https://extl2.github.io/mounjaro_flow/questionnaire.html" />
+        <input type="hidden" name="_next" value="https://extl2.github.io/mounjaro_flow/questionnaire.html" />
         <button type="submit" class="btn">予約内容を送信する</button>
       </form>
 
@@ -334,27 +334,53 @@
   <script>
     const form = document.getElementById('reservationForm');
     const successMessage = document.getElementById('successMessage');
-    const nextField = document.getElementById('nextField');
-    const questionnaireUrl = new URL('questionnaire.html', window.location.href).href;
 
-    if (nextField) {
-      nextField.value = questionnaireUrl;
-    }
-
-    form.addEventListener('submit', function (e) {
-      const action = form.getAttribute('action') || '';
+    form.addEventListener('submit', async function (e) {
+      const action = form.getAttribute('action');
+      const nextUrl = 'https://extl2.github.io/mounjaro_flow/questionnaire.html';
 
       // formspree未設定のままでも画面確認できるようにする
       if (action.includes('xxxxxxxx')) {
         e.preventDefault();
         successMessage.style.display = 'block';
-        successMessage.textContent = '画面サンプルです。1.2秒後に問診ページへ移動します。実運用では form の action を送信先URLに変更してください。';
+        successMessage.textContent = '画面サンプルです。1.2秒後に問診ページへ移動します。';
         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function () {
-          window.location.href = questionnaireUrl;
+        setTimeout(() => {
+          window.location.href = nextUrl;
         }, 1200);
+        return;
       }
-      // Formspree本番時は _next により送信完了後 questionnaire.html へ自動遷移します。
+
+      // Formspree送信後に自動で問診ページへ遷移
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          successMessage.style.display = 'block';
+          successMessage.textContent = '送信されました。問診ページへ移動します。';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            window.location.href = nextUrl;
+          }, 800);
+        } else {
+          successMessage.style.display = 'block';
+          successMessage.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } catch (error) {
+        successMessage.style.display = 'block';
+        successMessage.textContent = '通信エラーが発生しました。時間をおいて再度お試しください。';
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   </script>
 </body>
