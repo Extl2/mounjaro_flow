@@ -3,68 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ビデオ診察のご案内 | マンジャロ</title>
+  <title>オンライン診察のご案内</title>
   <style>
-    :root { --bg:#f6f8fb; --card:#fff; --text:#1f2937; --muted:#6b7280; --line:#d7dee8; --accent:#06c755; --accent-dark:#03a347; --shadow:0 12px 30px rgba(17,24,39,.08);} *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;line-height:1.65}
-    .wrap{max-width:760px;margin:0 auto;padding:18px 14px 50px}.hero{background:linear-gradient(135deg,#0b57d0 0%,#3f88ff 100%);color:#fff;border-radius:22px;padding:24px 18px;box-shadow:0 14px 32px rgba(11,87,208,.18);margin-bottom:16px}
-    .badge{display:inline-block;background:rgba(255,255,255,.16);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:10px}.hero h1{margin:0 0 8px;font-size:28px}.hero p{margin:0;font-size:14px;opacity:.97}
-    .card{background:var(--card);border:1px solid #e8eef5;border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:14px} .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    h2{margin:0 0 10px;font-size:18px} .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef4ff;color:#164ea6;font-size:12px;font-weight:800} .list{display:grid;gap:10px}.item{padding:12px;border:1px solid #edf1f6;border-radius:12px;background:#fafcff}
-    .btn{display:block;text-align:center;text-decoration:none;width:100%;border:none;border-radius:15px;padding:16px 18px;font-size:16px;font-weight:800;cursor:pointer;background:var(--accent);color:#fff;box-shadow:0 12px 22px rgba(6,199,85,.22)} .btn:hover{background:var(--accent-dark)}
-    .sub{font-size:13px;color:var(--muted)} .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.step{background:#eff6ff;color:#174ea6;border:1px solid #d7e6ff;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800}
-    @media (max-width:640px){.grid-2,.steps{grid-template-columns:1fr}.hero h1{font-size:24px}}
+    :root {
+      --bg: #f7f8fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --sub: #6b7280;
+      --line: #dbe2ea;
+      --accent: #06c755;
+      --accent-soft: #ecfdf3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 20px 14px 40px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #06c755 0%, #2fd56f 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 24px 20px;
+      box-shadow: 0 12px 28px rgba(6, 199, 85, 0.18);
+      margin-bottom: 16px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.3;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.96;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+      border: 1px solid #edf1f5;
+      margin-bottom: 14px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .step {
+      background: #f2fdf7;
+      color: #08763a;
+      border: 1px solid #ccefd8;
+      border-radius: 12px;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    ul {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+    li { margin-bottom: 8px; }
+    .notice {
+      background: var(--accent-soft);
+      border: 1px solid #abefc6;
+      color: #067647;
+      border-radius: 14px;
+      padding: 16px;
+      font-weight: 700;
+    }
+    .line-box {
+      background: #fafbfc;
+      border: 1px solid #edf1f5;
+      border-radius: 14px;
+      padding: 16px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(6, 199, 85, 0.22);
+      margin-top: 14px;
+    }
+    .note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--sub);
+      text-align: center;
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 24px; }
+      .steps { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="hero">
-      <div class="badge">診察直前ページ</div>
-      <h1>ビデオ診察のご案内</h1>
-      <p>問診ありがとうございました。診察は約5分程度です。通信環境の良い場所でご参加ください。</p>
+      <div class="badge">オンライン診療</div>
+      <h1>診察のご案内</h1>
+      <p>問診ありがとうございます。診察前の流れをご確認ください。</p>
     </div>
 
     <div class="card">
       <div class="steps">
-        <div class="step">1. 予約</div>
-        <div class="step">2. 問診</div>
-        <div class="step">3. ビデオ診察</div>
-        <div class="step">4. 決済・発送</div>
+        <div class="step">1. 予約完了</div>
+        <div class="step">2. 問診完了</div>
+        <div class="step">3. 診察案内</div>
       </div>
+
+      <h2>診察前のご案内</h2>
+      <ul>
+        <li>診察は医師によるビデオ通話で行います。</li>
+        <li>診察時間は約5分程度です。</li>
+        <li>通信環境の良い、静かな場所でお待ちください。</li>
+        <li>本人確認のため、身分証明書をご準備ください。</li>
+      </ul>
     </div>
 
-    <div class="card">
-      <h2>診察情報</h2>
-      <div class="grid-2">
-        <div class="item"><span class="pill">診察方法</span><div style="margin-top:8px;font-weight:700">ビデオ通話</div><div class="sub">Zoom / Google Meet / CLINICS などに差し替え可</div></div>
-        <div class="item"><span class="pill">所要時間</span><div style="margin-top:8px;font-weight:700">約5分程度</div><div class="sub">症状や確認事項により前後します</div></div>
-      </div>
+    <div class="card notice">
+      診察時間の10分前までに、Google MeetのURLをLINEでお送りします。<br>
+      このページのボタンから診察は開始されませんので、LINEのご案内をご確認ください。
     </div>
 
-    <div class="card">
-      <h2>診察前にご準備ください</h2>
-      <div class="list">
-        <div class="item">身分証明書をご用意ください。</div>
-        <div class="item">静かな場所、安定した通信環境でご参加ください。</div>
-        <div class="item">現在服用中の薬や、直近の症状をすぐ説明できるようご準備ください。</div>
-        <div class="item">強い腹痛、持続する嘔吐、著しい体調不良がある場合は、診察時に必ずお伝えください。</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>ご注意</h2>
-      <div class="list">
-        <div class="item">診察の結果により、マンジャロを処方できない場合があります。</div>
-        <div class="item">症状や背景によっては、対面診療や他の治療のご案内となることがあります。</div>
-        <div class="item">診察後の決済完了と確認後に、発送または次の案内へ進みます。</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>診察を開始</h2>
-      <p class="sub">下のボタンのリンク先を実際の診察URLに変更してご利用ください。</p>
-      <a class="btn" href="https://meet.google.com/fsy-rgvt-pxv" target="_blank" rel="noopener noreferrer">ビデオ診察を開始する</a>
-      <p class="sub" style="margin-top:10px">※このサンプルではダミーURLです。</p>
+    <div class="card line-box">
+      <strong>LINEで届く内容</strong><br><br>
+      ・診察時間のご案内<br>
+      ・Google MeetのURL<br>
+      ・診察前の注意事項<br><br>
+      LINE通知を受け取れる状態にしてお待ちください。
+      <a class="btn" href="https://line.me/R/ti/p/@YOUR_LINE_ID" target="_blank" rel="noopener noreferrer">LINEを開く</a>
+      <div class="note">※ 「@YOUR_LINE_ID」をあなたのLINE公式アカウントIDに置き換えてください。例：@abc1234x</div>
     </div>
   </div>
 </body>
