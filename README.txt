@@ -1,0 +1,1 @@
+SEO記事30ページの使い方\n1. GitHub Pagesへアップ\n2. 購入ページ名が違えば purchase_mounjaro.html を変更\n3. LINE URL は https://lin.ee/nSBG5aT を設定済み\n
