@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>再診確認</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+
+body{
+font-family:Arial;
+background:#f5f7fb;
+padding:20px;
+}
+
+.box{
+max-width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+button{
+background:#06c755;
+color:white;
+border:none;
+padding:14px;
+margin-top:20px;
+width:100%;
+border-radius:6px;
+font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>再診確認</h2>
+
+<p>
+マンジャロの購入は<br>
+診察を受けた方のみ可能です。
+</p>
+
+<input id="name" placeholder="お名前を入力してください">
+
+<button onclick="checkPatient()">
+確認して購入ページへ
+</button>
+
+<p style="margin-top:20px;font-size:14px">
+
+初診の方は先に診察予約をお願いします。
+
+</p>
+
+<a href="booking_redirect.html">
+初診予約はこちら
+</a>
+
+</div>
+
+<script>
+
+function checkPatient(){
+
+let name = document.getElementById("name").value;
+
+if(name.length < 2){
+
+alert("お名前を入力してください");
+
+return;
+
+}
+
+window.location.href = "purchase_mounjaro.html";
+
+}
+
+</script>
+
+</body>
+</html>
