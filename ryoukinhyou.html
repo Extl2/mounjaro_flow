@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マンジャロ料金ページ</title>
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#6b7280;
+      --line:#e5e7eb;
+      --accent:#06c755;
+      --accent2:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .wrap{
+      max-width:760px;
+      margin:0 auto;
+      padding:20px 14px 40px;
+    }
+    .hero{
+      background:linear-gradient(135deg,#06c755 0%,#2fd56f 100%);
+      color:#fff;
+      border-radius:18px;
+      padding:22px 18px;
+      box-shadow:0 12px 28px rgba(6,199,85,.18);
+      margin-bottom:16px;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:28px;
+      line-height:1.3;
+    }
+    .hero p{
+      margin:0;
+      font-size:14px;
+      opacity:.96;
+    }
+    .section{
+      margin-top:20px;
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size:22px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 8px 24px rgba(16,24,40,.06);
+      border:1px solid #edf1f5;
+    }
+    .title{
+      font-size:20px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+    .desc{
+      font-size:14px;
+      color:var(--sub);
+      margin-bottom:10px;
+    }
+    .price{
+      font-size:28px;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .tax{
+      font-size:13px;
+      color:var(--sub);
+      margin-bottom:14px;
+    }
+    .btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      text-decoration:none;
+      border:none;
+      border-radius:14px;
+      padding:16px 18px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(6,199,85,.22);
+    }
+    .note{
+      margin-top:18px;
+      background:#fff;
+      border:1px solid #edf1f5;
+      border-radius:14px;
+      padding:14px;
+      color:var(--sub);
+      font-size:13px;
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr;}
+      h1{font-size:24px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">処方ページ</div>
+      <h1>マンジャロ処方プラン</h1>
+      <p>税込・送料込みの料金です。ご希望のプランを選択すると、決済ページへ進みます。</p>
+    </div>
+
+    <div class="section">
+      <l1>マンジャロは週1回の注射で食欲を抑え、体重減少をサポートするGLP-1受容体作動薬です。</l1>
+      <h2>マンジャロ 2.5mg</h2></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="title">0.5ヶ月分（2本）</div>
+          <div class="desc">マンジャロ 2.5mg</div>
+          <div class="price">¥7,600</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%202.5mg%201%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%884%E6%9C%AC%EF%BC%89&price=14800">このプランで申し込む</a>
+        </div><div class="card">
+          <div class="title">1ヶ月分（4本）</div>
+          <div class="desc">マンジャロ 2.5mg</div>
+          <div class="price">¥14,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%202.5mg%201%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%884%E6%9C%AC%EF%BC%89&price=14800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">2ヶ月分（8本）</div>
+          <div class="desc">マンジャロ 2.5mg</div>
+          <div class="price">¥29,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%202.5mg%202%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%888%E6%9C%AC%EF%BC%89&price=29800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">3ヶ月分（12本）</div>
+          <div class="desc">マンジャロ 2.5mg</div>
+          <div class="price">¥42,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%202.5mg%203%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%8812%E6%9C%AC%EF%BC%89&price=42800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">4ヶ月分（16本）</div>
+          <div class="desc">マンジャロ 2.5mg</div>
+          <div class="price">¥54,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%202.5mg%204%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%8816%E6%9C%AC%EF%BC%89&price=54800">このプランで申し込む</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>マンジャロ 5mg</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="title">0.5ヶ月分（2本）</div>
+          <div class="desc">マンジャロ 5mg</div>
+          <div class="price">¥15,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%205mg%201%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%884%E6%9C%AC%EF%BC%89&price=29800">このプランで申し込む</a>
+        </div><div class="card">
+          <div class="title">1ヶ月分（4本）</div>
+          <div class="desc">マンジャロ 5mg</div>
+          <div class="price">¥29,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%205mg%201%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%884%E6%9C%AC%EF%BC%89&price=29800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">2ヶ月分（8本）</div>
+          <div class="desc">マンジャロ 5mg</div>
+          <div class="price">¥59,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%205mg%202%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%888%E6%9C%AC%EF%BC%89&price=59800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">3ヶ月分（12本）</div>
+          <div class="desc">マンジャロ 5mg</div>
+          <div class="price">¥84,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%205mg%203%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%8812%E6%9C%AC%EF%BC%89&price=84800">このプランで申し込む</a>
+        </div>
+        <div class="card">
+          <div class="title">4ヶ月分（16本）</div>
+          <div class="desc">マンジャロ 5mg</div>
+          <div class="price">¥109,800</div>
+          <div class="tax">税込・送料込み</div>
+          <a class="btn" href="payment_stera_dynamic.html?product=%E3%83%9E%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%AD%205mg%204%E3%83%B6%E6%9C%88%E5%88%86%EF%BC%8816%E6%9C%AC%EF%BC%89&price=109800">このプランで申し込む</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      ※ 各ボタンを押すと決済ページへ移動します。<br>
+      <br>
+      ※ 診察結果により処方内容が変更となる場合があります。
+    </div>
+  </div>
+</body>
+</html>
+<h2>マンジャロについて詳しく知る</h2>
+<ul>
+<li><a href="mounjaro_price.html">マンジャロの値段</a></li>
+<li><a href="mounjaro_side_effects.html">マンジャロの副作用</a></li>
+<li><a href="mounjaro_online.html">マンジャロのオンライン診療</a></li>
+<li><a href="mounjaro_where_to_buy.html">マンジャロはどこで買える？</a></li>
+<li><a href="mounjaro_5mg.html">マンジャロ5mgとは？</a></li>
+<li><a href="mounjaro_25mg.html">マンジャロ2.5mgとは？</a></li>
+<li><a href="mounjaro_bmi.html">マンジャロとBMIの考え方</a></li>
+<li><a href="mounjaro_clinic_tokyo.html">東京でマンジャロを相談したい方へ</a></li>
+<li><a href="mounjaro_constipation.html">マンジャロで便秘になる？</a></li> 
+<li><a href="mounjaro_continue.html">マンジャロを継続するときの確認点</a></li>
+<li><a href="mounjaro_diet_online.html">医療ダイエットとオンライン診療</a></li>
+<li><a href="mounjaro_eligibility.html">マンジャロが向いているか相談したい</a></li>
+<li><a href="mounjaro_faq.html">マンジャロのよくある質問</a></li>
+<li><a href="mounjaro_first_time.html">マンジャロを初めて使う方へ</a></li>
+<li><a href="mounjaro_frequency.html">マンジャロは週何回？</a></li>
+<li><a href="mounjaro_glp1.html">マンジャロとGLP-1の違い</a></li>
+<li><a href="mounjaro_line_consult.html">LINEで相談できる？</a></li>
+<li><a href="mounjaro_missed_dose.html">マンジャロを打ち忘れたら？</a></li>
+<li><a href="mounjaro_nausea.html">マンジャロの吐き気はいつまで続く？</a></li>
+<li><a href="mounjaro_not_eligible.html">マンジャロを処方できない場合</a></li>
+<li><a href="mounjaro_online.html">マンジャロはオンライン診療で処方できる？</a></li>
+<li><a href="mounjaro_price_compare.html">マンジャロの料金比較で見るべき点</a></li>
+<li><a href="mounjaro_price.html">マンジャロの値段はいくら？</a></li>
+<li><a href="mounjaro_restart.html">マンジャロを再開したいとき</a></li>
+<li><a href="mounjaro_safety.html">マンジャロの安全性について</a></li>
+<li><a href="mounjaro_shipping.html">発送までどのくらい？</a></li>
+<li><a href="mounjaro_side_effect_support.html">副作用が不安な方へ</a></li>
+<li><a href="mounjaro_side_effects.html">マンジャロの副作用とは？</a></li>
+<li><a href="mounjaro_storage.html">マンジャロの保管方法</a></li>
+<li><a href="mounjaro_usage.html">マンジャロの使い方・打ち方</a></li>
+<li><a href="mounjaro_weight_loss.html">マンジャロでどのくらい体重が減る？</a></li>
+<li><a href="mounjaro_where_to_buy.html">マンジャロはどこで買える？</a></li>
+<li><a href="mounjaro_women.html">女性の方が確認したいポイント</a></li>
