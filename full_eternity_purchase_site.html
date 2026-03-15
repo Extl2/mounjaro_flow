@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FULL ETERNITY 購入サイト</title>
+  <meta name="description" content="FULL ETERNITYの購入サイトです。初回は患者様限定5,500円（税込・送料込・お一人様1本まで）。2回目以降は1本9,800円（税込・送料込）。" />
+  <style>
+    :root{
+      --bg:#f8f4ec;
+      --bg2:#efe5d5;
+      --card:rgba(255,255,255,.82);
+      --text:#221c14;
+      --muted:#6c6255;
+      --gold:#b58a2b;
+      --gold-deep:#8a6822;
+      --green:#14563c;
+      --line:rgba(181,138,43,.18);
+      --white:#fff;
+      --shadow:0 18px 48px rgba(42,31,10,.12);
+      --radius:26px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+      line-height:1.8;
+      background:radial-gradient(circle at top,#fffdf8 0%,var(--bg) 40%,var(--bg2) 100%);
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    .topbar{
+      background:linear-gradient(90deg,#0d4a33,#1b6a49 62%,#9c772a);
+      color:#fff;
+      text-align:center;
+      padding:10px 14px;
+      font-size:13px;
+      letter-spacing:.06em;
+    }
+    .hero{padding:30px 0 66px}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center}
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      color:var(--gold-deep);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:18px 0 16px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(40px,7vw,82px);
+      line-height:.95;
+      font-weight:500;
+      letter-spacing:.02em;
+    }
+    .hero-sub{
+      font-size:clamp(18px,2.2vw,25px);
+      color:var(--muted);
+      margin:0 0 18px;
+    }
+    .glass,.visual,.price-card,.feature,.faq-item,.buy-card,.notice-card,.panel{
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+    .glass{border-radius:var(--radius);padding:20px 22px;color:#4f4436}
+    .hero-points{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+    .hero-points li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px;color:#4a4033}
+    .visual{border-radius:34px;padding:22px}
+    .visual img{border-radius:24px;width:100%;object-fit:cover}
+    .caption{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:56px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:800;letter-spacing:.05em;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),#d2af58);color:#fff;box-shadow:0 14px 32px rgba(181,138,43,.26)}
+    .btn-secondary{background:#fff;border:1px solid var(--line);color:var(--text)}
+    .btn-green{background:linear-gradient(135deg,var(--green),#0e452f);color:#fff;box-shadow:0 14px 32px rgba(20,86,60,.24)}
+
+    section{padding:72px 0}
+    .section-head{max-width:780px;margin:0 auto 30px;text-align:center}
+    .section-kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:10px}
+    .section-title{margin:0 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4.4vw,54px);line-height:1.12;font-weight:500}
+    .section-desc{margin:0;color:var(--muted);font-size:17px}
+
+    .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .price-card{border-radius:30px;padding:28px 24px;position:relative;overflow:hidden}
+    .price-badge{display:inline-block;padding:8px 12px;border-radius:999px;background:#f4ecdc;color:var(--gold-deep);font-size:12px;font-weight:800;letter-spacing:.12em}
+    .price-card h3{margin:16px 0 8px;font-size:34px;font-family:Georgia,serif;font-weight:500}
+    .price-copy{margin:0 0 18px;color:var(--muted)}
+    .price-main{display:flex;align-items:flex-end;gap:8px;line-height:1;color:var(--green);margin:10px 0 12px}
+    .price-main .num{font-size:58px;font-weight:900}
+    .price-main .yen{font-size:22px;font-weight:700;margin-bottom:8px}
+    .price-main .tax{font-size:14px;color:var(--muted);margin-bottom:8px}
+    .price-list{list-style:none;padding:0;margin:16px 0 0}
+    .price-list li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid rgba(181,138,43,.14);color:#493f33}
+    .price-list li:last-child{border-bottom:none}
+    .price-list li::before{content:"✓";position:absolute;left:5px;top:12px;color:var(--green);font-weight:900}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .panel{border-radius:30px;padding:24px}
+    .panel img{border-radius:22px;width:100%;object-fit:cover}
+    .text h3{margin:0 0 12px;font-family:Georgia,serif;font-size:36px;font-weight:500;line-height:1.14}
+    .text p{margin:0 0 14px;color:var(--muted)}
+    .bullets{list-style:none;padding:0;margin:18px 0 0}
+    .bullets li{position:relative;padding:13px 0 13px 34px;border-bottom:1px solid rgba(181,138,43,.14)}
+    .bullets li:last-child{border-bottom:none}
+    .bullets li::before{content:"◆";position:absolute;left:6px;top:12px;color:var(--gold)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{border-radius:24px;padding:24px}
+    .feature .n{font-family:Georgia,serif;font-size:44px;line-height:1;color:#d2c4a7;margin-bottom:12px}
+    .feature h3{margin:0 0 10px;font-size:22px;font-family:Georgia,serif;font-weight:500}
+    .feature p{margin:0;color:var(--muted)}
+
+    .buy-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+    .buy-card{border-radius:34px;padding:30px}
+    .buy-card h2{margin:0 0 12px;font-family:Georgia,serif;font-size:clamp(32px,4vw,50px);font-weight:500;line-height:1.1}
+    .buy-card p{margin:0 0 18px;color:var(--muted)}
+    .notice-card{border-radius:26px;padding:22px}
+    .notice-card h3{margin:0 0 10px;font-size:22px;font-family:Georgia,serif;font-weight:500}
+    .notice-card p{margin:0;color:var(--muted)}
+    .mini-list{list-style:none;padding:0;margin:14px 0 0}
+    .mini-list li{padding:10px 0;border-bottom:1px solid rgba(181,138,43,.14)}
+    .mini-list li:last-child{border-bottom:none}
+
+    .form-note{background:#fff8ea;border:1px solid rgba(181,138,43,.18);border-radius:18px;padding:14px 16px;font-size:14px;color:#5d513f;margin:18px 0}
+    .link-stack{display:grid;gap:12px}
+
+    .faq{display:grid;gap:14px}
+    .faq-item{border-radius:22px;padding:18px 20px}
+    .faq-q{font-weight:800;margin-bottom:8px}
+    .faq-a{color:var(--muted)}
+
+    footer{padding:28px 0 44px;color:#7a705f;font-size:12px;text-align:center}
+
+    @media (max-width: 960px){
+      .hero-grid,.pricing-grid,.split,.features,.buy-wrap{grid-template-columns:1fr}
+      section{padding:58px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">患者様限定 初回5,500円（税込・送料込）｜2回目以降 9,800円（税込・送料込）</div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Purchase Site</span>
+        <h1>FULL<br>ETERNITY</h1>
+        <p class="hero-sub">患者様向け購入サイト</p>
+        <div class="glass">
+          初回は <strong>5,500円（税込・送料込）</strong>、患者様限定で <strong>お一人様1本まで</strong>。2回目以降は <strong>1本9,800円（税込・送料込）</strong> でご案内する購入サイトです。
+        </div>
+        <ul class="hero-points">
+          <li>初回価格を明確表示</li>
+          <li>患者様限定の注意書きつき</li>
+          <li>画像2枚を使用</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#buy">購入方法を見る</a>
+          <a class="btn btn-secondary" href="#pricing">料金を見る</a>
+        </div>
+      </div>
+      <div class="visual">
+        <img src="full-eternity-main.png" alt="FULL ETERNITYの美容液ボトル">
+        <div class="caption">商品画像 1 / ボトル写真</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Pricing</div>
+        <h2 class="section-title">料金のご案内</h2>
+        <p class="section-desc">初回価格と2回目以降の価格が、一目でわかる構成にしています。</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <span class="price-badge">FIRST ORDER</span>
+          <h3>初回購入</h3>
+          <p class="price-copy">患者様限定 / お一人様1本まで</p>
+          <div class="price-main">
+            <span class="num">5,500</span>
+            <span class="yen">円</span>
+            <span class="tax">税込・送料込</span>
+          </div>
+          <ul class="price-list">
+            <li>患者様限定価格</li>
+            <li>お一人様1本まで</li>
+            <li>送料込</li>
+          </ul>
+        </article>
+        <article class="price-card">
+          <span class="price-badge">REORDER</span>
+          <h3>2回目以降</h3>
+          <p class="price-copy">継続購入価格</p>
+          <div class="price-main">
+            <span class="num">9,800</span>
+            <span class="yen">円</span>
+            <span class="tax">税込・送料込</span>
+          </div>
+          <ul class="price-list">
+            <li>1本 9,800円</li>
+            <li>送料込</li>
+            <li>継続購入用リンクに誘導</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container split">
+      <div class="panel">
+        <img src="full-eternity-box.jpg" alt="FULL ETERNITYの美容液ボトルと外箱">
+      </div>
+      <div class="text">
+        <div class="section-kicker">Product Image</div>
+        <h3>箱付き写真で、購入の納得感を高める。</h3>
+        <p>購入サイトでは、商品がどう見えるかが重要です。ボトル写真に加えて箱付き写真を入れることで、特別感と価格への納得感が出やすくなります。</p>
+        <ul class="bullets">
+          <li>メインビジュアルにボトル写真</li>
+          <li>商品説明に箱付き写真</li>
+          <li>価格と購入ボタンを明確表示</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:rgba(255,255,255,.28)">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Why This Page</div>
+        <h2 class="section-title">購入しやすい3つの理由</h2>
+        <p class="section-desc">必要な情報を整理し、初回と継続の導線を分けやすい設計です。</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="n">01</div>
+          <h3>初回価格がすぐ伝わる</h3>
+          <p>最上部と料金ブロックで、初回5,500円をはっきり見せています。</p>
+        </article>
+        <article class="feature">
+          <div class="n">02</div>
+          <h3>患者様限定条件が明確</h3>
+          <p>お一人様1本まで、という条件をページ上で明確に伝えられます。</p>
+        </article>
+        <article class="feature">
+          <div class="n">03</div>
+          <h3>2回目以降の導線も分けやすい</h3>
+          <p>初回用URLと継続用URLを別々に設定しやすい構成です。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy">
+    <div class="container buy-wrap">
+      <div class="buy-card">
+        <div class="section-kicker">Purchase</div>
+        <h2>購入はこちら</h2>
+        <p>ボタンのリンク先を実際の購入URLに差し替えるだけで運用できます。初回購入と継続購入は分けて設定してください。</p>
+
+        <div class="form-note">
+          初回購入は <strong>患者様限定</strong>、かつ <strong>お一人様1本まで</strong> とご案内してください。
+        </div>
+
+        <div class="link-stack">
+          <a class="btn btn-primary" href="#">初回5,500円で購入する</a>
+          <a class="btn btn-green" href="#">2回目以降 9,800円で購入する</a>
+          <a class="btn btn-secondary" href="#">LINEで問い合わせる</a>
+        </div>
+      </div>
+
+      <aside class="notice-card">
+        <h3>運用メモ</h3>
+        <p>実際に使うときは、初回用と継続用で決済リンクを分けるのがおすすめです。</p>
+        <ul class="mini-list">
+          <li>初回用ボタン → 初回価格の決済URL</li>
+          <li>継続用ボタン → 9,800円の決済URL</li>
+          <li>LINE → 問い合わせ・患者確認用</li>
+          <li>画像ファイルはHTMLと同じフォルダに配置</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">FAQ</div>
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Q. 初回価格の条件はどこに書かれていますか？</div>
+          <div class="faq-a">ページ上部、料金ブロック、購入ブロックの3か所で明示しています。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q. 画像はどこに置けばよいですか？</div>
+          <div class="faq-a">このHTMLと同じフォルダに <strong>full-eternity-main.png</strong> と <strong>full-eternity-box.jpg</strong> を置いてください。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q. 購入ボタンはどう設定すればよいですか？</div>
+          <div class="faq-a">初回用ボタンと継続用ボタンの <code>href="#"</code> を、実際の決済URLに差し替えてください。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © FULL ETERNITY Purchase Site
+  </footer>
+</body>
+</html>
