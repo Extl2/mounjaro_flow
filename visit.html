@@ -34,20 +34,34 @@ h1{
   margin-top:14px;
   font-size:14px;
 }
+.line-guide{
+  margin:20px 0 0;
+  font-size:15px;
+  line-height:1.7;
+  font-weight:600;
+}
 .btn{
   display:block;
+  box-sizing:border-box;
   width:100%;
   text-align:center;
   text-decoration:none;
   border:none;
-  border-radius:14px;
+  border-radius:12px;
   padding:16px;
-  font-size:16px;
+  font-size:20px;
   font-weight:700;
   cursor:pointer;
   background:#06c755;
   color:#fff;
-  margin-top:20px;
+  margin-top:12px;
+}
+.btn:hover{
+  background:#05b94d;
+}
+.btn:focus-visible{
+  outline:3px solid rgba(6,199,85,.35);
+  outline-offset:3px;
 }
 .small{
   font-size:13px;
@@ -64,40 +78,39 @@ h1{
     <h1>オンライン診察のご案内</h1>
 
     <p>
-    ご予約ありがとうございます。<br>
-    診察は <strong>Google Meetによるビデオ診察</strong> で行います。
+      ご予約ありがとうございます。<br>
+      診察は <strong>Google Meetによるビデオ診察</strong> で行います。
     </p>
 
     <div class="notice">
-    診察時間の<strong>10分前までに</strong><br>
-    Google Meetの診察URLを<strong>LINEでお送りします</strong>。
+      診察時間の<strong>10分前までに</strong><br>
+      Google Meetの診察URLを<strong>LINEでお送りします</strong>。
     </div>
 
     <p class="small">
-    診察開始前にLINEをご確認ください。<br>
-    ご不明点がある場合もLINEからご連絡いただけます。
+      診察開始前にLINEをご確認ください。<br>
+      ご不明点がある場合もLINEからご連絡いただけます。
     </p>
 
+    <p class="line-guide">
+      LINE友だち追加していない方は下のボタンを押してLINE友だち追加してください
+    </p>
+
+    <!-- 下記URLを実際のLINE公式アカウントの友だち追加URLに置き換えてください -->
     <a
-  href="https://line.me/R/msg/text/?診察希望"
-  style="
-    display:block;
-    background:#06C755;
-    color:white;
-    text-align:center;
-    padding:16px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:20px;
-  "
->
-  LINEで診察希望を送る
-</a>
+      class="btn"
+      href="https://lin.ee/XXXXXXXX"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LINEで友だち追加する"
+    >
+      LINE友だち追加
+    </a>
+
     <p class="small">
-    ※通信環境の良い場所でお待ちください。<br>
-    ※診察時間は約5分程度です。<br>
-    ※診察の結果により処方できない場合があります。
+      ※通信環境の良い場所でお待ちください。<br>
+      ※診察時間は約5分程度です。<br>
+      ※診察の結果により処方できない場合があります。
     </p>
 
   </div>
